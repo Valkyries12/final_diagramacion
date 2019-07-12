@@ -22,14 +22,15 @@ def game_over():
     
 
 #imprime la muerte
-def death(death_options, option):
-    print(death_options[option])
+def death(death_options, answer):
+    print(death_options[answer])
     game_over()
 
 #me devuelve la opcion elegida
 def choose_wisely(choose, options):
     answer = ""
     while answer not in options:
+        print("="*20)
         print("¿Qué respuesta eliges?")
         for key, value in choose.items():
             print(f"{key} : {value}")
@@ -50,7 +51,38 @@ def principio(situation_cruice, choose_items , death_cruice, death_items, option
         print("Te equipas bien y comienzas a nadar hacia la isla")
     else:
         death(death_items, answer)
-    
+
+#cuenta las situaciones despues de saltar del crucero
+def going_to_the_isle(situation_in_the_water, death_water, options):
+    print()
+    print("Una vez en el agua te das cuenta que es el inicio de un naufragio")
+    answer = choose_wisely(situation_in_the_water, options)
+    if answer == "C":
+        print("Remas con todas tus fuerzas con las cosas que tenes encima hasta poder tocar tierra firme")
+    else:
+        death(death_water, answer)
+
+#cuenta la situacion llegado a la isla
+def on_isle(situation_in_the_isle, death_isle, options):
+    print()
+    print("Logras poner los pies en tierra firme y te encuentras con un gentío usando mascaras extrañas y apuntandote con lanzas y flechas")
+    answer = choose_wisely(situation_in_the_isle, options)
+    if answer == "A":
+        print("Corres sin parar ni mirar hacia atras. Te metes en las profundidades de la selva y encuentras una pared llena de jeroglificos")
+    else:
+        death(death_isle, answer)
+
+#cuenta la situacion de la pared de jeroglificos
+def the_wall(situation_wall, death_wall, options):
+    print()
+    print("Soprendido y asustado comienzas a tocar la pared pensando que estas en una película de Indiana Jones. De pronto te das cuenta que estas siendo observado por una mujer con una máscara diferente")
+    answer = choose_wisely(situation_wall, options)
+    if answer == "B":
+        print("La mujer entiende tu desesperacion, te da una banana(?) y te hace señas que la sigas")
+    else:
+        death(death_wall, answer)
+
+#opciones estando en el crucero
 choose_items = {
     "A" : "Equipo completo de pesca, botellas de vidrio con alcohol, semillas de diversas clases",
     "B" : "Un jeep nuevo, Una vaca y un toro, fotos personales",
@@ -77,6 +109,49 @@ death_cruice = {
     "C" : "Saltas sin ver por donde y caes justo encima de un arrecife",
 }
 
+#opciones cuando te tiras al agua
+situation_in_the_water = {
+    "A" : "Te pones panza arriba y te dejas arrastrar por la corriente",
+    "B" : "Comienzas a nadar hacia la isla estilo mariposa",
+    "C" : "Te subes a los restos del crucero y comienzas a remar hacia la isla",
+    "D" : "Ves unas aletas rondando cerca y te subes arriba de un delfin :D!"
+}
+
+death_water = {
+    "A" : "La corriente te lleva hasta una tromba marina y mueres ahogado",
+    "B" : "Pasado los 10 minutos te das cuenta que ya no sos un pibe y te cansas. Mueres ahogado",
+    "D" : "Resulta que el delfin no era tan delfin y resulto ser un tiburon, te morfa en tres bocados",
+}
+
+#opciones llegado a la isla
+situation_in_the_isle = {
+    "A" : "Te asustas, les haces .I. y te vas corriendo",
+    "B" : "Pelas el facón y te arrebatas contra ellos",
+    "C" : "Intentas razonar con ellos",
+    "D" : "Te regresas al agua",
+}
+
+death_isle = {
+    "B" :  "3 segundos después estas decapitado",
+    "C" : "esto no funciona y 1 minuto despues estas castrado y decapitado",
+    "D" : "comienzas a nadar, esquivando las cosas que te arrojan los nativos pero eres alcanzado por un tiburon"
+}
+
+#opciones pared jeroglificos
+situation_wall = {
+    "A" : "Sigues tocando toda la pared en busca de un boton secreto",
+    "B" : "Intentas comunicarte con la mujer",
+    "C" : "Te pones a leer detenidamente los jeroglificos",
+    "D" : "Ves que al costado hay una cueva y te metes en ella"
+}
+
+death_wall = {
+    "A" : "Efectivamente pasa como en las pelis y activaste una trampa!!!. Una flecha con veneno te atraviesa el ojo izquierdo",
+    "C" : "Pasas demasiado tiempo leyendo la pared y eres alcanzado por los nativos. Te empalaron como Marley a las cucarachas!!",
+    "D" : "Un oso de 2 metros de alto te da un zarpaso y te arranca los intestinos"
+}
+
+#opciones de las preguntas
 options = ["A", "B", "C", "D"]
 
 
@@ -85,4 +160,7 @@ options = ["A", "B", "C", "D"]
 print("Eran vacaciones y decides ir a un crucero por medio del mediterraneo. Una noche de tormenta el crucero rompe proa y este comienza a hundirse")
 start_game()
 principio(situation_cruice, choose_items, death_cruice, death_items, options)
+going_to_the_isle(situation_in_the_water, death_water, options)
+on_isle(situation_in_the_isle, death_isle, options)
+the_wall(situation_wall, death_wall, options)
 
