@@ -7,6 +7,7 @@ def start_game():
     while start != "s":
         start = input("¿Queres empezar a jugar?: S/N ")
         start.upper()
+        print("Eran vacaciones y decides ir a un crucero por medio del mediterraneo. Una noche de tormenta el crucero rompe proa y este comienza a hundirse")
         if start == "n":
             print("Media pila loco me hiciste codear al pedo!!!")
             exit()
@@ -82,6 +83,16 @@ def the_wall(situation_wall, death_wall, options):
     else:
         death(death_wall, answer)
 
+#cuanta laa situacion del camino de los monos
+def monkey_path(situation_monkeys, death_monkeys, options):
+    print()
+    print("Extrañado por la situación comienzas a seguir a la mujer enmascarada. De pronto  escuchas sonidos raros y te ves rodeado de gorilas y monos. Estos miran a la mujer y luego te miran fijamente esperando una especie de respuesta.")
+    answer = choose_wisely(situation_monkeys, options)
+    if answer == "D":
+        print("Los animales aceptan tu regalo y deciden protegerte de los nativos, estas salvado momentáneamente")
+    else:
+        death(death_monkeys, answer)
+
 #opciones estando en el crucero
 choose_items = {
     "A" : "Equipo completo de pesca, botellas de vidrio con alcohol, semillas de diversas clases",
@@ -106,7 +117,7 @@ situation_cruice = {
 death_cruice = {
     "A" : "Pensaste tanto que te has hundido junto con el crucero",
     "B" : "Diste tantas vueltas que se agujereo el piso y te has ahogado",
-    "C" : "Saltas sin ver por donde y caes justo encima de un arrecife",
+    "C" : "Saltas sin ver por donde y caes justo encima de un arrecife. Te partís la cabeza en dos",
 }
 
 #opciones cuando te tiras al agua
@@ -151,16 +162,31 @@ death_wall = {
     "D" : "Un oso de 2 metros de alto te da un zarpaso y te arranca los intestinos"
 }
 
+#opciones territorio de monos
+situation_monkeys = {
+    "A" : "Te pones la banana en la cabeza y comienzas a girar en círculos diciendo 'Nos destruirán a todos!!!'",
+    "B" : "Amenazas a los monos con tu facón",
+    "C" : "Le convidas una botella de alcohol",
+    "D" : "Te arrodillas y le entregas la banana"
+}
+
+death_monkeys = {
+    "A" : "Los monos te ven desconfiadamente y la mujer te pega con una piedra en la cabeza por ridículo. Morís desangrado",
+    "B" : "Los gorilas aceptan el desafío. 10 minutos más tarde tu cadaver yace entre las heces de ellos",
+    "C" : "Los gorilas aceptan tu regalo y lo beben. El sabor no les gustó y te pegan un revéz aflojandote la mandíbula. Morís desangrado"
+}
+
 #opciones de las preguntas
 options = ["A", "B", "C", "D"]
 
 
 
 
-print("Eran vacaciones y decides ir a un crucero por medio del mediterraneo. Una noche de tormenta el crucero rompe proa y este comienza a hundirse")
+
 start_game()
 principio(situation_cruice, choose_items, death_cruice, death_items, options)
 going_to_the_isle(situation_in_the_water, death_water, options)
 on_isle(situation_in_the_isle, death_isle, options)
 the_wall(situation_wall, death_wall, options)
+monkey_path(situation_monkeys, death_monkeys, options)
 
