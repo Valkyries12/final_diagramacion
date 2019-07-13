@@ -93,6 +93,17 @@ def monkey_path(situation_monkeys, death_monkeys, options):
     else:
         death(death_monkeys, answer)
 
+#cuenta la situacion del enfrentamiento entre monos y nativos
+def monkey_war(situation_war, death_war, options):
+    print()
+    print("Te ves envuelto en una guerra entre nativos y gorilas. Por un lado un gentío disparando lanzas, dardos envenenados y flechas. Mientras que por el otro, animales furiosos arrancando ojos y lanzando piedras. Una sensación de pánico te recorre por el cuerpo y no sabes muy bien que hacer...")
+    answer = choose_wisely(situation_war, options)
+    if answer == "B":
+        print("Al finalizar la batalla los animales confían en ti y te suben al lomo de un gorila gigante de lomo plateado")
+    else:
+        death(death_war, answer)
+
+
 #opciones estando en el crucero
 choose_items = {
     "A" : "Equipo completo de pesca, botellas de vidrio con alcohol, semillas de diversas clases",
@@ -104,14 +115,14 @@ choose_items = {
 death_items = {
     "B" : "Al acercarte a los animales estos te atacan provocando que caigas al agua y mueras",
     "C" : "Al tirarte al agua con el gato este comienza a rasguñarte y provoca que te ahogues",
-    "D" : "Tu codicia por vender esta obra de arte provoca que te ahogues, que boludo!!"
+    "D" : "Tu codicia por vender esta obra de arte provoca que te ahogues, que boludo!!",
 }
 
 situation_cruice = {
     "A" : "Te pones a pensar muy calmadamente",
     "B" : "Entras en pánico y das vuelta en círculo",
     "C" : "Saltas del crucero",
-    "D" : "Comienzas a ver que es lo que podrías llevarte contigo"
+    "D" : "Comienzas a ver que es lo que podrías llevarte contigo",
 }
 
 death_cruice = {
@@ -125,7 +136,7 @@ situation_in_the_water = {
     "A" : "Te pones panza arriba y te dejas arrastrar por la corriente",
     "B" : "Comienzas a nadar hacia la isla estilo mariposa",
     "C" : "Te subes a los restos del crucero y comienzas a remar hacia la isla",
-    "D" : "Ves unas aletas rondando cerca y te subes arriba de un delfin :D!"
+    "D" : "Ves unas aletas rondando cerca y te subes arriba de un delfin :D!",
 }
 
 death_water = {
@@ -145,7 +156,7 @@ situation_in_the_isle = {
 death_isle = {
     "B" :  "3 segundos después estas decapitado",
     "C" : "esto no funciona y 1 minuto despues estas castrado y decapitado",
-    "D" : "comienzas a nadar, esquivando las cosas que te arrojan los nativos pero eres alcanzado por un tiburon"
+    "D" : "comienzas a nadar, esquivando las cosas que te arrojan los nativos pero eres alcanzado por un tiburon",
 }
 
 #opciones pared jeroglificos
@@ -153,13 +164,13 @@ situation_wall = {
     "A" : "Sigues tocando toda la pared en busca de un boton secreto",
     "B" : "Intentas comunicarte con la mujer",
     "C" : "Te pones a leer detenidamente los jeroglificos",
-    "D" : "Ves que al costado hay una cueva y te metes en ella"
+    "D" : "Ves que al costado hay una cueva y te metes en ella",
 }
 
 death_wall = {
     "A" : "Efectivamente pasa como en las pelis y activaste una trampa!!!. Una flecha con veneno te atraviesa el ojo izquierdo",
     "C" : "Pasas demasiado tiempo leyendo la pared y eres alcanzado por los nativos. Te empalaron como Marley a las cucarachas!!",
-    "D" : "Un oso de 2 metros de alto te da un zarpaso y te arranca los intestinos"
+    "D" : "Un oso de 2 metros de alto te da un zarpaso y te arranca los intestinos",
 }
 
 #opciones territorio de monos
@@ -167,13 +178,27 @@ situation_monkeys = {
     "A" : "Te pones la banana en la cabeza y comienzas a girar en círculos diciendo 'Nos destruirán a todos!!!'",
     "B" : "Amenazas a los monos con tu facón",
     "C" : "Le convidas una botella de alcohol",
-    "D" : "Te arrodillas y le entregas la banana"
+    "D" : "Te arrodillas y le entregas la banana",
 }
 
 death_monkeys = {
     "A" : "Los monos te ven desconfiadamente y la mujer te pega con una piedra en la cabeza por ridículo. Morís desangrado",
     "B" : "Los gorilas aceptan el desafío. 10 minutos más tarde tu cadaver yace entre las heces de ellos",
-    "C" : "Los gorilas aceptan tu regalo y lo beben. El sabor no les gustó y te pegan un revéz aflojandote la mandíbula. Morís desangrado"
+    "C" : "Los gorilas aceptan tu regalo y lo beben. El sabor no les gustó y te pegan un revéz aflojandote la mandíbula. Morís desangrado",
+}
+
+#opciones de la guerra entre nativos y monos
+situation_war = {
+    "A" : "Salís corriendo despavorido",
+    "B" : "Te unes a los gorilas y luchas junto a ellos",
+    "C" : "Tomas de rehén a la mujer enmascarada",
+    "D" : "Te escondes detras de una roca gigante",
+}
+
+death_war = {
+    "A" : "Al alejarte un poco del malón eres un blanco mas fácil y mueres atravezado por una lanza en el pecho",
+    "C" : "Al tomarla de rehén un gorila de lomo plateado arremete contra vos y te arranca los brazos",
+    "D" : "La roca resultó ser un 'nido' de serpientes y mueres envenenado",
 }
 
 #opciones de las preguntas
@@ -189,4 +214,5 @@ going_to_the_isle(situation_in_the_water, death_water, options)
 on_isle(situation_in_the_isle, death_isle, options)
 the_wall(situation_wall, death_wall, options)
 monkey_path(situation_monkeys, death_monkeys, options)
+monkey_war(situation_war, death_war, options)
 
