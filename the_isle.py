@@ -4,13 +4,14 @@
 
 def start_game():
     start = None
-    while start != "s":
-        start = input("¿Queres empezar a jugar?: S/N ")
-        start.upper()
-        print("Eran vacaciones y decides ir a un crucero por medio del mediterraneo. Una noche de tormenta el crucero rompe proa y este comienza a hundirse")
-        if start == "n":
+    while start != "S":
+        start = input("¿Queres empezar a jugar?: [S/N] ")
+        start = start.upper()
+        if start == "N":
             print("Media pila loco me hiciste codear al pedo!!!")
             exit()
+        if start == "S":
+            print("Eran vacaciones y decides ir a un crucero por medio del mediterraneo. Una noche de tormenta el crucero rompe proa y este comienza a hundirse")
 
 
 def game_over():
