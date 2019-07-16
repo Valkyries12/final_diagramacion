@@ -103,6 +103,27 @@ def monkey_war(situation_war, death_war, options):
     else:
         death(death_war, answer)
 
+#cuenta la situacion de cuando el gorila te lleva en su espalda para ir a la ciudad perdida
+def going_lost_city(situation_going_lost_city, death_going_lost_city, options):
+    print()
+    print("Los gorillas, la mujer enmascarada y tú comienzan un viaje por medio de toda la selva, cruzando rios, lagos y viajando sobre lianas. Pasado el tiempo llegan a un precipicio muy profundo el cual los gorillas mayores se encargan de llevar a los mas pequeños. ")
+    answer = choose_wisely(situation_going_lost_city, options)
+    if answer == "A":
+        print("Logran cruzar el precipicio sanos y salvos")
+    else:
+        death(death_going_lost_city, answer)
+
+#cuenta la situacion en la ciudad perdida
+def lost_city(situation_lost_city, death_lost_city, options):
+    print()
+    print("Una vez cruzado el precipicio logran entrar a una ciudad la cual no se veía desde el otro lado. Miras a tu alrededor y ya no ves jungla, sino una ciudad repleta de tecnología. Los monos comienzan a hablar tu mismo idioma")
+    answer = choose_wisely(situation_lost_city, options)
+    if answer == "D":
+        print("La mujer enmascarada comienza a hablar y te explica que es una ciudad perdida la cuál cuenta con tecnología de punta y por ese mismo motivo se esconden bajo una cúpula invisible al ojo humano")
+    else:
+        death(death_lost_city, answer)
+
+
 
 #opciones estando en el crucero
 choose_items = {
@@ -201,6 +222,34 @@ death_war = {
     "D" : "La roca resultó ser un 'nido' de serpientes y mueres envenenado",
 }
 
+#opciones del camino hacia la ciudad perdida
+situation_going_lost_city = {
+    "A" : "Te acercas al gorilla, te subes en él y lo abrazas con fuerza",
+    "B" : "Te acercas al gorilla, te subes en él y le pegas como si fuera un caballo",
+    "C" : "Intentas saltar por tu cuenta",
+    "D" : "Te acercas al gorilla, te subes en él y lo agarras de los pelos",
+}
+
+death_going_lost_city = {
+    "B" : "El gorilla enojado por tu agresión te lanza un revéz y te rompe la madre",
+    "C" : "Caes como bolsa de papa al vacío",
+    "D" : "Los pelos del gorilla no son tan fuertes como parecen, se arrancan con facilidad. Caes al vacío",
+}
+
+#opciones de la ciudad perdida
+situation_lost_city = {
+    "A" : "Al escuchar a los monos hablar tu idioma te asustas y te regresas por la entrada, pasando por la cúpula",
+    "B" : "Te quedas viendo atónito a los animales y a toda la tecnología de alrededor",
+    "C" : "De la emoción te adentras corriendo al centro de la ciudad",
+    "D" : "Sorprendido por todo lo que ves te acercas a la mujer enmascarada",
+}
+
+death_lost_city = {
+    "A" : "Caes al vacío que desemboca en un río infestado de cocodrilos",
+    "B" : "Muchas emociones recorren tu cuerpo provocandote un ACV",
+    "C" : "Te topas con la guardia imperial y estos te atraviezan con lanzas y espadas",
+}
+
 #opciones de las preguntas
 options = ["A", "B", "C", "D"]
 
@@ -215,4 +264,6 @@ on_isle(situation_in_the_isle, death_isle, options)
 the_wall(situation_wall, death_wall, options)
 monkey_path(situation_monkeys, death_monkeys, options)
 monkey_war(situation_war, death_war, options)
+going_lost_city(situation_going_lost_city, death_going_lost_city, options)
+lost_city(situation_lost_city, death_lost_city, options)
 
