@@ -1,7 +1,4 @@
 
-
-
-
 def start_game():
     start = None
     while start != "S":
@@ -124,6 +121,16 @@ def lost_city(situation_lost_city, death_lost_city, options):
     else:
         death(death_lost_city, answer)
 
+#cuenta la situacion de cuando pedis ayuda 
+def searching_help(situation_searching_help, death_searching_help, options):
+    print()
+    print("Sorprendido por la explicación que te dan, tu lado explorador te indica que podrías quedarte y aprender mucho de esta cultura pero extrañarías tu tierra")
+    answer = choose_wisely(situation_searching_help, options)
+    if answer == "C":
+        print("decides tener una nueva vida en esta ciudad futurista para aportar mejoras a la humanidad")
+    else:
+        death(death_searching_help, answer)
+
 
 
 #opciones estando en el crucero
@@ -242,13 +249,27 @@ situation_lost_city = {
     "A" : "Al escuchar a los monos hablar tu idioma te asustas y te regresas por la entrada, pasando por la cúpula",
     "B" : "Te quedas viendo atónito a los animales y a toda la tecnología de alrededor",
     "C" : "De la emoción te adentras corriendo al centro de la ciudad",
-    "D" : "Sorprendido por todo lo que ves te acercas a la mujer enmascarada",
+    "D" : "Sorprendido por todo lo que ves te acercas nuevamente a la mujer enmascarada",
 }
 
 death_lost_city = {
     "A" : "Caes al vacío que desemboca en un río infestado de cocodrilos",
     "B" : "Muchas emociones recorren tu cuerpo provocandote un ACV",
     "C" : "Te topas con la guardia imperial y estos te atraviezan con lanzas y espadas",
+}
+
+#opciones cuando pedis ayuda
+situation_searching_help = {
+    "A" : "Pides una radio para dar tu ubicación y que te rescaten",
+    "B" : "Pides que te lleven ellos a tu tierra",
+    "C" : "Decides quedarte y contribuir a su sociedad en agradecimiento por haberte salvado",
+    "D" : "Pides un vehículo para irte por tu cuenta",
+}
+
+death_searching_help = {
+    "A" : "Te comunicas con la frecuencia del ejército y pides ayuda. Horas mas tarde unos aviones de guerra sobrevuelan la cúpula y lanzan un borbardeo",
+    "B" : "Aceptan llevarte de regreso y al entrar a las cercanías de tu tierra, eres detectado como una amenaza y te derriban",
+    "D" : "Al salir de la cúpula te das cuenta que no entiendes como se maneja tal tecnología y te estrellas contra una montaña",
 }
 
 #opciones de las preguntas
@@ -267,4 +288,5 @@ monkey_path(situation_monkeys, death_monkeys, options)
 monkey_war(situation_war, death_war, options)
 going_lost_city(situation_going_lost_city, death_going_lost_city, options)
 lost_city(situation_lost_city, death_lost_city, options)
+searching_help(situation_searching_help, death_searching_help, options)
 
